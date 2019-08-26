@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Form view for service wizard -->
+    <record id="kims_service_wizard_view" model="ir.ui.view">
+        <field name="name">Service Wizard Report</field>
+        <field name="model">service.wizard.report</field>
+        <field name="arch" type="xml">
+            <form string="Service Reports">
+                <group col="4">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </group>
+                <footer>
+                    <button name='sale_report' string="Sale Report" type="object" icon="fa-minus-square-o" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+  
+    <record id="service_kims_report_wizard" model="ir.actions.act_window">
+        <field name="name">Service Report Wizard</field>
+        <field name="res_model">service.wizard.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+  
+
+
+    <record id="sale_servicetax_details_report" model="ir.actions.report">
+        <field name="name">Service Tax Percentage Details</field>
+        <field name="model">report.kims_service_report.report_service_details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">kims_service_report.report_service_details</field>
+    </record>
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_service_details">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <div class="text-center" style="text-align:center;">
+                            <h2>Sales Details</h2>
+                            <strong>
+                                <t t-esc="start_date" t-options="{'widget': 'datetime'}"/>
+ -                                <t t-esc="end_date" t-options="{'widget': 'datetime'}"/>
+                            </strong>
+                        </div>
+                        <!-- <h3>Report taken by:<span t-esc="user.name"></span></h3> -->
+                        <!-- Orderlines -->
+                        <!--<h3>Products</h3>-->
+                        <div class="row">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>SO_ID</th>
+                                        <th>PRICE</th>
+                                        <th>TAX AMOUNT</th>
+                                        <th>TAX PERCENTAGE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach='datarow' t-as='lines'>
+                                        <td>
+                                            <t t-esc="lines['soid']" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="lines['pricettl']" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="lines['taxpercent']" />
+                                        </td>
+                                         <td>
+                                            <t t-esc="lines['taxamount']" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- <h3>Payments</h3>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th/>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach='payments' t-as='payment'>
+                                    <td>
+                                        <t t-esc="payment['name']" />
+                                    </td>
+                                    <td style="width:10%!important;"/>
+                                    <td>
+                                        <t t-esc="payment['total']" t-options="{'widget': 'float', 'precision': currency_precision}"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <strong>Total: <t t-esc='total_paid' t-options="{'widget': 'float', 'precision': currency_precision}"/>
+                        </strong> -->
+
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>
